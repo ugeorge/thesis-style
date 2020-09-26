@@ -1,0 +1,85 @@
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[export]{adjustbox}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[tikz,math]{forsyde}
+\usepackage[clock,weather,alpine]{ifsym}
+\usetikzlibrary{shapes,decorations,arrows,shadows.blur,decorations.markings,backgrounds,calc,fit,forsyde.pictures.layered,matrix}
+% \usepackage{transparent}
+\usepackage{caption}
+\captionsetup{font=scriptsize,labelfont=scriptsize}
+
+\usepackage{pgfplots}% Make nice looking plot
+\usepgfplotslibrary{groupplots}
+
+\usepackage[normalem]{ulem}
+
+\addtobeamertemplate{footnote}{\hsize\textwidth}{}
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+\lstdefinestyle{customc}    {language=C,}
+\lstdefinestyle{customatom} {language=Haskell,frame=none,
+  morekeywords={as,default11,default22,resolution22,farm32,farm11,cat,group,concat,comb22,pipe2,bitrev,concat2,Signal,Vector,farm21,reduce,comb21,comb11,fanout,stencil,farm41, farm31},}
+\lstset{
+  basicstyle=\scriptsize\ttfamily,
+  frame=single,
+  language=C,
+  tabsize=4,
+  breaklines=true, 
+  captionpos=b, 
+  keywordstyle=\color{red}, 
+  commentstyle=\color{blue}\textit,
+  stringstyle=\color{magenta}\textit
+}
+
+
+\tikzset{
+  zoomed/.style = {anchor=north, draw=red, ultra thick, rounded corners,fill=white, inner sep=0},
+}
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\newenvironment{mathAndCode}[4]{%
+  \begin{onlyenv}<#1>\vspace{-2ex}
+    \begin{columns}
+      \begin{column}{#2}
+        \begin{block}{Functional description}\footnotesize\vspace{-5ex}
+          \begin{multline*}%
+            #4
+          \end{multline*}
+        \end{block}
+      \end{column}
+      \begin{column}{#3}
+        \begin{block}{\textsc{ForSyDe-Atom} code}\vspace{-2ex}%
+        }{\vspace{-1ex}%
+        \end{block}
+      \end{column}
+      \begin{column}{.12\textwidth}
+      \end{column}
+    \end{columns}
+  \end{onlyenv}
+}
+      
+
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{celestialblue}{rgb}{0.29, 0.59, 0.82}
+\definecolor{darkpastelpurple}{rgb}{0.59, 0.44, 0.84}
+\definecolor{darkorange}{rgb}{1.0, 0.55, 0.0}
+\definecolor{goldenyellow}{rgb}{1.0, 0.87, 0.0}
+
+
+\newsavebox{\sboxone}
+\newsavebox{\sboxtwo}
+\newsavebox{\sboxthree}

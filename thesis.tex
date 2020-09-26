@@ -1,0 +1,139 @@
+%% Valid options for now:
+% * g5paper (recommended)
+% * a4paper
+% * electronic: to convert to a4 prints for proofreading
+% * noblurb: to take away KTH blurb. It is not valid anyway, I will need to change it
+\documentclass[g5paper,electronic,10pt]{kthesis}
+
+% check it out before importing, and make your own style file
+\usepackage{thesis-style}
+
+% Document meta. Might want to input all this info from a separate file.
+\title{Everything is AWESOME!}
+\subtitle{...but also serious}
+\author{Boaty McBoatface}
+\date{March 2021}
+% not sure about below. Will modify once I start caring about it
+\thesistype{Doctoral Thesis in Information and Communication Technology (INFKOMTE)}
+\imprint{
+School of Electrical Engineering and Computer Science\\
+KTH Royal Institute of Technology\\
+Stockholm, Sweden 2021}
+\examen{doktorsexamen i Informations- och kommunikationsteknik}
+\disputationsdatum{[veckodag/weekday] den [dag/day] [m\aa nad/month] [\aa r/year] klockan [tid/time]}
+\disputationslokal{[sal/hall], Electrum,
+  Kungl Tekniska h\"{o}gskolan, Kistag\aa ngen 16, Kista}
+\isbn{ISBN XXX-XX-XXXX-XXX-X}
+\issn{ISSN 1653-7610}
+\isrn{ISRN KTH/ICT-MAP/AVH-2015:02-SE}
+\trita{TRITA-ICT XXXX:XX}
+\publisher{Universitetsservice US AB}
+\address{KTH School of Electrical\\
+  Engineering and Computer Science\\
+  SE-164 40 Kista\\
+  SWEDEN}
+\kthlogo{KTH-logo}
+
+% here would be a good place to write glossaries. I am using another separate file
+
+\begin{document}
+
+% Good to know below, but quite useless
+% \addcontentsline{toc}{chapter}{Note: \\ It is not allowed to "copy and paste" from your papers to your dissertation.} % these are notes and they are not a part of the thesis
+
+\frontmatter
+\maketitle
+
+\cleardoublepage
+% English abstract below (again, separate file...)
+\begin{abstract}
+
+Write your abstract here...
+
+\textbf{Keywords:} Keyword1, keyword2, ... 
+\clearpage
+\end{abstract}
+
+% Swedish abstract below (file...)
+\selectlanguage{swedish} 
+\begin{abstract}
+
+Write your Swedish summary (popular description) here...
+
+\textbf{Keywords:} Keyword1, keyword2, ... 
+\clearpage
+\end{abstract}
+
+% Inspirational quote below (file...)
+\selectlanguage{english}
+\clearpage
+\thispagestyle{empty}
+\null\vfill
+\begin{flushright}
+\parbox{.65\linewidth}{%
+  \raggedleft{\Large\itshape%
+    Where's George?\\[2em]
+  \MakeUppercase{Ingo Sander}\par%
+  }
+}
+\end{flushright}
+\vfill\vfill
+\clearpage
+
+% Acknowledgements (file...?)
+\cleardoublepage
+\section*{Acknowledgements}
+
+I want to thank all my fans! This one's for you... XOXO
+
+\begin{table}[hb]
+\begin{tabular}{lp{6.67cm}llll}
+& & & & \textit{Name Surname,} \\
+& & & & Place, Date
+\end{tabular}
+\end{table}
+\cleardoublepage
+
+% Take out whatever you don't need from below
+\setcounter{tocdepth}{2} % used for content layout
+% \renewcommand{\contentsname}{Contents (suggestion)} % changes the appearance of Contents
+\tableofcontents
+\cleardoublepage
+% \listoffigures
+% \cleardoublepage
+% \listoftables
+% \clearpage
+% \printglossary
+% \printglossary[type=\acronymtype]
+% \cleardoublepage
+
+\mainmatter
+\setcounter{secnumdepth}{3} % used for content layout
+
+\chapter{Introduction}
+\label{cha:introduction}
+
+Once upon a time, there was a princess...
+
+\chapter[The Lazy-Ass Dragon]{Taming the Dragon who\\Did Not Want to Do His Morning Exercise}
+\label{cha:related}
+Oh, no!
+
+
+% \bibliography{refs}
+
+
+%\backmatter % should be used for the actual thesis, separate documents can be added without the numbering, similar to the \frontmatter
+%\appendix{\input{app_papers}}
+\appendix
+
+\chapter{Paper 1}
+\label{cha:paper-1}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

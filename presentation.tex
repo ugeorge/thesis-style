@@ -1,0 +1,79 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{KTH}
+% \usepackage[backend=bibtex,autocite=footnote,style=verbose]{biblatex}
+% \addbibresource{refs}
+
+% remove this if using XeLaTeX or LuaLaTeX
+\usepackage[utf8]{inputenc}
+% \usepackage[outline]{contour}
+\usepackage{appendixnumberbeamer}
+\usepackage{fontawesome}
+\usepackage{subfigure}
+
+% I think footnote is too big for slides. Take away if you do not agree.
+\addtobeamertemplate{footnote}{\hsize\textwidth}{}
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+\title{Everything is AWESOME!}
+\subtitle{...but also serious}
+\author{Boaty McBoatface}
+
+\institute{%
+  School of EECS, KTH Royal Institute of Technology, Stockholm, Sweden%
+}
+
+\AtBeginSection[]{
+  \begin{frame}[noframenumbering]
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+% Fancier intermediate outline. Served my purpose for the proposal...
+% \AtBeginSubsection[]{
+%   \begin{frame}[noframenumbering]
+%   \vfill
+%     \setcounter{tocdepth}{3}  
+%     \tableofcontents[
+%     sections=\value{section},
+%     sectionstyle=show/shaded,
+%     subsectionstyle=show/shaded/shaded,
+%     subsubsectionstyle=show/show/shaded/shaded,
+%     ]
+%   \vfill
+%   \end{frame}
+% }
+
+\begin{document}
+
+
+{\setbeamertemplate{footline}{}
+  \begin{frame}[noframenumbering]
+    \titlepage
+  \end{frame}}
+
+
+\begin{frame}[fragile]
+  \frametitle{Life Lesson}
+
+  \begin{block}{Remember}
+    Eat 5 veggies a day!
+  \end{block}
+\end{frame}
+
+\begin{frame}[noframenumbering]\centering
+  \vfill Thank you!\vfill
+  % \includegraphics[height=.5\textheight]{figs/onion.jpg}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

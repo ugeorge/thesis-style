@@ -1,0 +1,149 @@
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish, english]{babel}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[%
+colorlinks,
+allcolors=blue!30!gray,
+% linkcolor=black!80,
+% citecolor=black!60,
+% urlcolor=cyan!60!black,
+bookmarks=false]{hyperref} 
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,calc}
+
+\usepackage{graphicx} 
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.eps}
+\graphicspath{{./figs/}}
+
+\usepackage[authoryear,sort]{natbib} 
+\bibliographystyle{plainnat}
+\usepackage{bibentry}
+\nobibliography*
+\usepackage{doi}
+
+\usepackage[nomain,acronym,toc,nonumberlist,shortcuts]{glossaries}
+\preto\chapter\glsresetall
+\makeglossaries
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{labelfont=bf,font=small}
+
+\usepackage[textsize=tiny]{todonotes}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\usepackage{multirow}
+
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.3}
+\usepackage{cleveref}
+
+
+% Minted is awesome. I use it instead of listings. It is more complicated to use though, and needs --shell-escape. Below I am defining my own lexer for a custom language, but that would be overkill if code is not really important.
+% \usepackage{minted}
+% \renewcommand{\MintedPygmentize}{../sty/pygments/pygmentize.py}
+% \setminted{fontsize=\footnotesize,bgcolor=yellow!7}
+
+
+%\usepackage{graphics}
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage{color} 
+%\usepackage{transparent} 
+%\usepackage{bm} % bold math
+%\usepackage{fmtcount}
+
+
+%\usepackage{url}
+%\usepackage{cite}
+% \usepackage[singlelinecheck=off]{caption}
+
+\newcommand*\cleartoleftpage{%
+  \clearpage
+  \ifodd\value{page}\hbox{}\newpage\fi
+}
+
+%title customzation - Chapter title
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@
+  \reset@font
+  \hbox{%
+    \vbox{\hsize=2cm
+      \begin{tabular}{c}
+        \scshape \strut \@chapapp{} \\
+        \fbox{%
+          \vrule depth 10em width 0pt%
+          \vrule height 0pt depth 0pt width 1ex%
+          {\LARGE \bfseries \strut \thechapter}%
+          \vrule height 0pt depth 0pt width 1ex%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+      \advance\hsize by -2cm
+      \hrule\par
+      \vskip 6pt%
+      %\hspace{1em}%
+       \noindent\Huge\bfseries#1
+      }%
+    }%
+  \vskip 60\p@
+}}
+
+\pagestyle{headings}
+\renewcommand{\chaptermark}[1]{ \markboth{\textsc{Chapter \thechapter}. #1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{\thesection\ #1}{} }
+
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}%
+  {\z@}{2.25ex \@plus 1ex \@minus .2ex}{-1em}%
+  {\normalfont\normalsize\bfseries}%
+}
+
+% \pagestyle{fancy}
+% \renewcommand{\chaptermark}[1]%
+% {\markboth{{\thechapter.\ #1}}{}}
+% \renewcommand{\sectionmark}[1]%
+% {\markright{{\thesection.\ #1}}}
+% \renewcommand{\headrulewidth}{0.5pt}
+% % \renewcommand{\footrulewidth}{0pt}
+% \newcommand{\helv}{%
+%   \fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
+% \fancyhf{}
+% \fancyhead[LE,RO]{\helv \thepage}
+% \fancyhead[LO]{\textsc{\textbf{\nouppercase{\rightmark}}}}
+% \fancyhead[RE]{\textsc{\textbf{\nouppercase{\leftmark}}}}
+
+
+% make numeric styles use name format
+\patchcmd{\NAT@test}{\else \NAT@nm}{\else \NAT@nmfmt{\NAT@nm}}{}{}
+
+% define \citepos just like \citet
+\DeclareRobustCommand\citepos
+  {\begingroup
+   \let\NAT@nmfmt\NAT@posfmt% ...except with a different name format
+   \NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+   \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+\DeclareRobustCommand\citeposs
+  {\begingroup
+   \let\NAT@nmfmt\NAT@possfmt% ...except with a different name format
+   \NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+   \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+ 
+\let\NAT@orig@nmfmt\NAT@nmfmt
+\def\NAT@posfmt#1{\NAT@orig@nmfmt{#1's}}
+\def\NAT@possfmt#1{\NAT@orig@nmfmt{#1'}}
+
+%%%%%%%%%
+\DeclareUnicodeCharacter{3BB}{$\lambda$}
